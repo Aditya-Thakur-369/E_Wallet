@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import 'package:e_wallet/features/account/screen/account_screen.dart';
 import 'package:e_wallet/features/home/screen/home_screen.dart';
-import 'package:e_wallet/features/statistics/screen/statistics_screen.dart';
-import 'package:e_wallet/features/wallet/screen/wallet_page.dart';
+import 'package:e_wallet/features/statistics/statistics_screen.dart';
+import 'package:e_wallet/features/wallet/wallet_page.dart';
 import 'package:e_wallet/router/router.dart';
 import 'package:e_wallet/screen/navigation.dart';
 
