@@ -8,8 +8,8 @@ class AppRouter {
 }
 
 class Routes {
-  static AppRouter navigation = AppRouter(name: "root", path: "/navigstion");
-  static AppRouter homescreen = AppRouter(name: "home", path: "/");
+  static AppRouter navigation = AppRouter(name: "root", path: "/");
+  static AppRouter homescreen = AppRouter(name: "home", path: "/home");
   static AppRouter statisticsscreen =
       AppRouter(name: "statistics", path: "/statistics");
   static AppRouter wallet = AppRouter(name: "wallet", path: "/wallet");
