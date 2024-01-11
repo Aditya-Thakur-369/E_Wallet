@@ -24,7 +24,9 @@ class AccountScreen extends StatelessWidget {
                   "assets/images/icons/Arrow - Left 2.png",
                   scale: 0.8,
                 ),
-                const Spacer(),
+                SizedBox(
+                  width: 120,
+                ),
                 const Text(
                   "Account",
                   style: TextStyle(
@@ -65,6 +67,31 @@ class AccountScreen extends StatelessWidget {
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   color: Colors.white),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 150, top: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Card limit : ",
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontFamily: 'Poppins',
+                        fontStyle: FontStyle.normal,
+                        color: Color(0xFF7B78AA)),
+                  ),
+                  Text(
+                    "\$ 10000",
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.normal,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 30,
