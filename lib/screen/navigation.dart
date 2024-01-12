@@ -3,8 +3,11 @@ import 'package:e_wallet/features/account/screen/account_screen.dart';
 import 'package:e_wallet/features/home/screen/home_screen.dart';
 import 'package:e_wallet/features/statistics/statistics_screen.dart';
 import 'package:e_wallet/features/wallet/wallet_page.dart';
+import 'package:e_wallet/router/router.dart';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 
 // class NavigationScreen extends StatelessWidget {
 //   const NavigationScreen({
@@ -32,7 +35,7 @@ import 'package:flutter/material.dart';
 //             child: Container(
 //               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
 //               decoration: BoxDecoration(
-//                 color: Colors.white,
+//                 color: Colors.transparent.withOpacity(0.6),
 //                 border: Border.all(color: CommonColor().bluebg),
 //                 // boxShadow: [
 //                 //   BoxShadow(
@@ -51,12 +54,16 @@ import 'package:flutter/material.dart';
 //                 height: 50,
 //                 child: CustomNavBar(
 //                   colors: Colors.pink,
-//                   selectedColor: Colors.white,
+//                   selectedColor: CommonColor().backgorund1,
 //                   icons: [
-//                     selectedIndex == 0 ? Iconsax.home5 : Iconsax.home_1,
-//                     selectedIndex == 1 ? Iconsax.heart5 : Iconsax.heart,
-//                     selectedIndex == 2 ? Iconsax.add : Iconsax.add,
-//                     selectedIndex == 3 ? Iconsax.message5 : Iconsax.message,
+//                     "assets/images/icons/House.png",
+//                     "assets/images/icons/credit card.png",
+//                     "assets/images/icons/account.png",
+//                     "assets/images/icons/bar graph.png",
+//                     // selectedIndex == 0 ? Iconsax.home5 : Iconsax.home_1,
+//                     // selectedIndex == 1 ? Iconsax.heart5 : Iconsax.heart,
+//                     // selectedIndex == 2 ? Iconsax.add : Iconsax.add,
+//                     // selectedIndex == 3 ? Iconsax.message5 : Iconsax.message,
 //                   ],
 //                   currentIndex: selectedIndex,
 //                   onItemTap: (index) => context.go(_indexToTab(index)),
@@ -95,7 +102,7 @@ import 'package:flutter/material.dart';
 //     required this.colors,
 //   });
 
-//   final List<IconData> icons;
+//   final List<String> icons;
 //   final int currentIndex;
 //   final void Function(int index) onItemTap;
 //   final Color selectedColor;
@@ -163,12 +170,12 @@ import 'package:flutter/material.dart';
 //                             : () {
 //                                 widget.onItemTap(index);
 //                               },
-//                         child: Icon(
+//                         child: Image.asset(
 //                           e,
-//                           color: widget.currentIndex == index
-//                               ? widget.selectedColor
-//                               : widget.colors,
-//                           size: 30,
+//                           // color: widget.currentIndex == index
+//                           //     ? widget.selectedColor
+//                           //     : widget.colors,
+//                           // size: 30,
 //                         ),
 //                       ),
 //                     ),
@@ -209,9 +216,9 @@ class _NavigationState extends State<Navigation> {
     return Scaffold(
       bottomNavigationBar: Material(
         child: Container(
+          padding: EdgeInsets.only(top: 0),
           height: 100,
-          decoration:
-              BoxDecoration(color: CommonColor().backgorund1.withOpacity(0.5)),
+          decoration: BoxDecoration(color: Colors.transparent.withOpacity(0.5)),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: icondata.length,
@@ -226,7 +233,8 @@ class _NavigationState extends State<Navigation> {
                       selectedIndex = index;
                     });
                   },
-                  child: SizedBox(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
                     width: index == 0
                         ? 40
                         : index == 3
