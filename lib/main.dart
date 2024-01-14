@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
       routerDelegate: router.routerDelegate,
+      theme: ThemeData(brightness: Brightness.dark),
     );
   }
 }

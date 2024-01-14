@@ -33,34 +33,34 @@ class _CardTabState extends State<CardTab> {
             SizedBox(
               height: 300,
               width: 400,
-              child: Expanded(
-                child: SizedBox(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return Swiper(
-                        axisDirection: AxisDirection.left,
-                        physics: const ClampingScrollPhysics(),
-                        autoplayDisableOnInteraction: true,
-                        layout: SwiperLayout.STACK,
-                        duration: Duration.microsecondsPerMillisecond,
-                        // autoplayDelay: Duration.secondsPerDay,
-                        autoplay: true,
-                        allowImplicitScrolling: true,
-                        itemWidth: 350,
-                        itemHeight: 220,
-                        itemCount: cardlist.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          var data = cardlist[index];
-                          return CreditCard(
-                              name: data.name,
-                              number: data.number,
-                              validupto: data.validupto);
-                        },
-                        // pagination: const DotSwiperPaginationBuilder(space: 10),
-                      );
-                    },
-                  ),
+              child: SizedBox(
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Swiper(
+                      axisDirection: AxisDirection.left,
+                      physics: const ClampingScrollPhysics(),
+                      autoplayDisableOnInteraction: true,
+                      layout: SwiperLayout.STACK,
+                      duration: Duration.microsecondsPerMillisecond,
+                      // autoplayDelay: Duration.secondsPerDay,
+                      autoplay: true,
+                      allowImplicitScrolling: true,
+
+                      itemWidth: 350,
+                      itemHeight: 220,
+                      itemCount: cardlist.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        var data = cardlist[index];
+                        return CreditCard(
+                          name: data.name,
+                          number: data.number,
+                          validupto: data.validupto,
+                        );
+                      },
+                      // pagination: const DotSwiperPaginationBuilder(space: 10),
+                    );
+                  },
                 ),
               ),
             ),
