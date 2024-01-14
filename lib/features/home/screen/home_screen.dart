@@ -2,7 +2,9 @@ import 'package:e_wallet/common/common_color.dart';
 import 'package:e_wallet/common/common_textstyle.dart';
 import 'package:e_wallet/features/home/model/transaction_model.dart';
 import 'package:e_wallet/features/home/widget/card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -212,19 +214,52 @@ class _HomeScreenState extends State<HomeScreen>
                       child: Container(
                         height: 400,
                         width: 430,
+                        decoration: BoxDecoration(
+                          color: CommonColor().bluebg,
+                          borderRadius:
+                              BorderRadius.circular(10), // Add a border radius
+                        ),
                         child: ListView.builder(
                           physics: RangeMaintainingScrollPhysics(),
                           itemCount: list.length,
                           itemBuilder: (context, index) {
                             var data = list[index];
-                            return Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 15, right: 15, top: 10),
-                              child: CustomCard(
-                                image: data.image,
-                                name: data.name,
-                                date: data.date,
-                                ammount: data.ammount,
+                            return CupertinoContextMenu(
+                              actions: [
+                                CupertinoContextMenuAction(
+                                    onPressed: () {
+                                      GoRouter.of(context).pop();
+                                    },
+                                    child: Text(
+                                      "View Deatils",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black),
+                                    )),
+                                CupertinoContextMenuAction(
+                                    onPressed: () {
+                                      GoRouter.of(context).pop();
+                                    },
+                                    child: Text(
+                                      "Back",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black),
+                                    ))
+                              ],
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 15, right: 15, top: 10),
+                                child: CustomCard(
+                                  image: data.image,
+                                  name: data.name,
+                                  date: data.date,
+                                  ammount: data.ammount,
+                                ),
                               ),
                             );
                           },

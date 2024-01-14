@@ -34,6 +34,7 @@ import 'package:e_wallet/screen/navigation.dart';
 //           child: child,
 //         ),
 //       );
+      
 //     },
 //     routes: [
 //       GoRoute(
@@ -45,7 +46,7 @@ import 'package:e_wallet/screen/navigation.dart';
 //         },
 //       ),
 //       GoRoute(
-//         parentNavigatorKey: _shellNavigatorKey,
+//         parentNavigatorKey: _shellNavigatorKey, 
 //         path: Routes.wallet.path,
 //         name: Routes.wallet.name,
 //         pageBuilder: (context, state) {
